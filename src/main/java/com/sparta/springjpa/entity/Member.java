@@ -20,7 +20,7 @@ public class Member extends Timestamped {
     private String memberName;
 
     @OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
-    private List<Order> orders = new ArrayList<>();
+    private List<Orders> orders = new ArrayList<>();
 
     public Member(String memberName) {
         this.memberName = memberName;

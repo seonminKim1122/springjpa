@@ -2,10 +2,10 @@ package com.sparta.springjpa;
 
 import com.sparta.springjpa.entity.Food;
 import com.sparta.springjpa.entity.Member;
-import com.sparta.springjpa.entity.Order;
+import com.sparta.springjpa.entity.Orders;
 import com.sparta.springjpa.repository.FoodRepository;
 import com.sparta.springjpa.repository.MemberRepository;
-import com.sparta.springjpa.repository.OrderRepository;
+import com.sparta.springjpa.repository.OrdersRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -20,7 +20,7 @@ public class Restaurant implements ApplicationRunner {
 
     private final FoodRepository foodRepository;
     private final MemberRepository memberRepository;
-    private final OrderRepository orderRepository;
+    private final OrdersRepository ordersRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -61,31 +61,31 @@ public class Restaurant implements ApplicationRunner {
             System.out.println("findFood = " + findFood.getName());
         }
 
-        List<Order> orders = new ArrayList<>();
-        Order order1 = new Order(findFoods.get(0), findMembers.get(0));
-        orders.add(order1);
-        Order order2 = new Order(findFoods.get(3), findMembers.get(1));
-        orders.add(order2);
-        Order order3 = new Order(findFoods.get(4), findMembers.get(1));
-        orders.add(order3);
-        Order order4 = new Order(findFoods.get(2), findMembers.get(0));
-        orders.add(order4);
-        Order order5 = new Order(findFoods.get(2), findMembers.get(0));
-        orders.add(order5);
-        Order order6 = new Order(findFoods.get(1), findMembers.get(1));
-        orders.add(order6);
-        Order order7 = new Order(findFoods.get(1), findMembers.get(0));
-        orders.add(order7);
-        Order order8 = new Order(findFoods.get(3), findMembers.get(1));
-        orders.add(order8);
-        orderRepository.saveAll(orders);
+        List<Orders> orders = new ArrayList<>();
+        Orders orders1 = new Orders(findFoods.get(0), findMembers.get(0));
+        orders.add(orders1);
+        Orders orders2 = new Orders(findFoods.get(3), findMembers.get(1));
+        orders.add(orders2);
+        Orders orders3 = new Orders(findFoods.get(4), findMembers.get(1));
+        orders.add(orders3);
+        Orders orders4 = new Orders(findFoods.get(2), findMembers.get(0));
+        orders.add(orders4);
+        Orders orders5 = new Orders(findFoods.get(2), findMembers.get(0));
+        orders.add(orders5);
+        Orders orders6 = new Orders(findFoods.get(1), findMembers.get(1));
+        orders.add(orders6);
+        Orders orders7 = new Orders(findFoods.get(1), findMembers.get(0));
+        orders.add(orders7);
+        Orders orders8 = new Orders(findFoods.get(3), findMembers.get(1));
+        orders.add(orders8);
+        ordersRepository.saveAll(orders);
 
         System.out.println("=================================================================");
         int num = 1;
 
         System.out.println("Order 데이터");
-        List<Order> orderList = orderRepository.findAll();
-        for (Order order : orderList) {
+        List<Orders> ordersList = ordersRepository.findAll();
+        for (Orders order : ordersList) {
             System.out.println(num);
             System.out.println("주문한 사람 = " + order.getMember().getMemberName());
             System.out.println("주문한 음식 = " + order.getFood().getName());
@@ -98,7 +98,7 @@ public class Restaurant implements ApplicationRunner {
         );
 
         num = 1;
-        for (Order order : samsik.getOrders()) {
+        for (Orders order : samsik.getOrders()) {
             System.out.println(num++);
             System.out.println("주문한 음식 = " + order.getFood().getName());
             System.out.println("주문한 음식 가격 = " + order.getFood().getPrice());
@@ -110,7 +110,7 @@ public class Restaurant implements ApplicationRunner {
                 () -> new NullPointerException("저희 매장에는 아보카도 피자가 없습니다.")
         );
 
-        for (Order order : abocado.getOrders()) {
+        for (Orders order : abocado.getOrders()) {
             System.out.println("주문한 사람 = " + order.getMember().getMemberName());
         }
     }

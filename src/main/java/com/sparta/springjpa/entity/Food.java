@@ -23,7 +23,7 @@ public class Food extends Timestamped {
     private int price;
 
     @OneToMany(mappedBy = "food", fetch = FetchType.EAGER)
-    private List<Order> orders = new ArrayList<>();
+    private List<Orders> orders = new ArrayList<>();
 
     public Food(String name, int price) {
         this.name = name;

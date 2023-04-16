@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 @NoArgsConstructor
-public class Order extends Timestamped {
+public class Orders extends Timestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,12 +22,12 @@ public class Order extends Timestamped {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    public Order(Food food, Member member) {
+    public Orders(Food food, Member member) {
         this.food = food;
         this.member = member;
     }
 
-    public Order(OrderRequestDto requestDto) {
+    public Orders(OrderRequestDto requestDto) {
         this.food = requestDto.getFood();
         this.member = requestDto.getMember();
     }

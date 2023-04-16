@@ -1,6 +1,6 @@
 package com.sparta.springjpa.dto;
 
-import com.sparta.springjpa.entity.Order;
+import com.sparta.springjpa.entity.Orders;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -10,5 +10,5 @@ import java.util.List;
 @AllArgsConstructor
 public class MemberRequestDto {
     private String memberName;
-    private List<Order> orders;
+    private List<Orders> orders;
 }

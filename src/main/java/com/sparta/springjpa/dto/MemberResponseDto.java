@@ -1,7 +1,7 @@
 package com.sparta.springjpa.dto;
 
 import com.sparta.springjpa.entity.Member;
-import com.sparta.springjpa.entity.Order;
+import com.sparta.springjpa.entity.Orders;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class MemberResponseDto {
     private Long id;
     private String memberName;
-    private List<Order> orders;
+    private List<Orders> orders;
 
     public MemberResponseDto(Member member) {
         this.id = member.getId();

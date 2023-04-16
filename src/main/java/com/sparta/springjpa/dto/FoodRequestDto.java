@@ -1,6 +1,6 @@
 package com.sparta.springjpa.dto;
 
-import com.sparta.springjpa.entity.Order;
+import com.sparta.springjpa.entity.Orders;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -11,5 +11,5 @@ import java.util.List;
 public class FoodRequestDto {
     private String name;
     private int price;
-    private List<Order> orders;
+    private List<Orders> orders;
 }
